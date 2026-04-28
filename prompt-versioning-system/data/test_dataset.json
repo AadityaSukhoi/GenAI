@@ -1,0 +1,10 @@
+[
+  {
+    "input": "Define ML",
+    "expected": "Summarize: Define ML"
+  },
+  {
+  "input": "Explain AI",
+  "expected": "Artificial Intelligence is the simulation of human intelligence."
+  }
+]
