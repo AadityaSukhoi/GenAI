@@ -1,0 +1,161 @@
+:root {
+    --bg: #050505;
+    --surface: #111111;
+    --accent: #ffffff;
+    --error: #ff4747;
+    --text-main: #e0e0e0;
+    --text-dim: #888888;
+    --border: rgba(255, 255, 255, 0.08);
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+}
+
+.aura-app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Header */
+.aura-header {
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.15em;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+}
+
+.status-container { display: flex; align-items: center; gap: 8px; }
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: #00ff88;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ff88;
+}
+
+/* Chat Viewport */
+.chat-viewport {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 20px;
+    scroll-behavior: smooth;
+}
+
+.chat-viewport::-webkit-scrollbar { width: 0; }
+
+.message {
+    margin-bottom: 3rem;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.message.user {
+    color: var(--accent);
+    font-weight: 500;
+    text-align: right;
+    margin-left: auto;
+    max-width: 85%;
+}
+
+.message.bot {
+    color: var(--text-main);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* Markdown Specifics */
+.message.bot p { margin-bottom: 1.2rem; }
+.message.bot ul, .message.bot ol { margin-bottom: 1.2rem; padding-left: 1.2rem; }
+.message.bot li { margin-bottom: 0.6rem; }
+
+/* Input Hub */
+.input-hub { padding: 20px 20px 40px; }
+.input-wrapper {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: flex-end;
+    transition: var(--transition);
+}
+
+.input-wrapper:focus-within { border-color: rgba(255,255,255,0.2); }
+
+textarea {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    padding: 10px;
+    resize: none;
+    max-height: 180px;
+}
+
+button {
+    background: var(--accent);
+    color: black;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+button.stop-state {
+    background: var(--error);
+    color: white;
+}
+
+/* Feedback */
+.feedback-area {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.vote-btn {
+    cursor: pointer;
+    opacity: 0.4;
+    transition: var(--transition);
+}
+
+.vote-btn:hover { opacity: 1; transform: translateY(-1px); }
+
+.voted-msg {
+    font-size: 0.75rem;
+    color: #00ff88;
+    animation: fadeIn 0.3s ease;
+}
+
+.comment-link {
+    font-size: 0.7rem;
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--text-dim);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}

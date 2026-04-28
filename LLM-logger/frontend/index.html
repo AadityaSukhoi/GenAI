@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+    <main class="aura-app">
+        <header class="aura-header">
+            <div class="logo">AURA</div>
+            <div class="status-container">
+                <span id="status-text">System Ready</span>
+                <div class="status-dot"></div>
+            </div>
+        </header>
+
+        <section class="chat-viewport" id="chat-viewport">
+            <div id="chat-flow"></div>
+        </section>
+
+        <footer class="input-hub">
+            <div class="input-wrapper">
+                <textarea id="prompt" rows="1" placeholder="Ask Aura anything..." oninput="autoResize(this)" onkeydown="handleKeyDown(event)"></textarea>
+                <button type="button" id="actionBtn" onclick="handleAction()">
+                    <i id="buttonIcon" data-lucide="arrow-up"></i>
+                </button>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
